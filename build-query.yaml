@@ -1,0 +1,16 @@
+apiVersion: build.knative.dev/v1alpha1
+kind: Build
+metadata:
+  name: storefinder-query-build
+spec:
+  timeout: 20m
+  serviceAccountName: svc-build
+  source:    
+    git:
+      url: https://github.com/storefinder/query.git
+      revision: master
+  template:
+    name: ci-build-template
+    arguments:
+    - name: IMAGE
+      value: gcr.io/$PROJECT_ID/storefinder/query:latest

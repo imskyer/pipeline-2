@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: build-svc-acct-creds
+  annotations:
+    build.knative.dev/git-0: https://github.com
+type: kubernetes.io/basic-auth
+stringData:
+  username: <<specify>>
+  password: <<specify>>
+  
